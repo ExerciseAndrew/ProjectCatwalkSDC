@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const db = require('../postgreSQLdb/index');
+const db = require('../db/index');
 
 const app = express();
 const PORT = 3000;

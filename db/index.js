@@ -1,12 +1,15 @@
 const { Pool } = require('pg');
 
-const PORT = 3000;
+
+const PORT = 5432;
 
 const pool = new Pool({
   host: 'localhost',
-  user: 'database-user',
-  database: 'questionsandanswers',
-  port: PORT
+  user: 'liljazzman',
+  database: 'questionsAndAnswers',
+  port: PORT,
+  idleTimeoutMillis: 0,
+  connectionTimeoutMillis: 0,
 });
 
 //acquires client from the pool.
@@ -19,6 +22,7 @@ pool.connect((err) => {
   }
 });
 
+//extract
 const getQuestionsUnder5 = (callback) => {
   pool.query('SELECT * FROM questions WHERE questionId < 5', (err, results) => {
     if (err) {
@@ -28,7 +32,13 @@ const getQuestionsUnder5 = (callback) => {
     }
   });
 };
+//-------------------------------extract
 
+//any tansforms would be made here.
+//---------------------------------transform
+
+
+//load
 const addQuestion = (params, callback) => {
   pool.query('INSERT INTO questions (productId, body, date, askerName, askerEmail, reported, helpfullness) VALUES (?, ?, ?, ?, ?, ?, ?)',
     [params.productId,
@@ -46,6 +56,7 @@ const addQuestion = (params, callback) => {
       }
     });
 };
+//---------------------------------load
 
 module.exports = {
   getQuestionsUnder5, addQuestion
