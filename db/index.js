@@ -5,7 +5,7 @@ const PORT = 5432;
 
 const pool = new Pool({
   host: 'localhost',
-  user: 'liljazzman',
+  user: 'postgres',
   database: 'questionsAndAnswers',
   port: PORT,
   idleTimeoutMillis: 0,
