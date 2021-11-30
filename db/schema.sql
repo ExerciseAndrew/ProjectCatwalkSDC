@@ -48,9 +48,9 @@ CREATE TABLE answerPhotos (
 
 -- >>>>>>
 
--- COPY questions FROM '/Users/liljazzman/HR138/ProjectCatwalkSDC/questions.csv' WITH DELIMITER ',' CSV HEADER;
--- COPY answers FROM '/Users/liljazzman/HR138/ProjectCatwalkSDC/answers.csv' WITH DELIMITER ',' CSV HEADER;
--- COPY answerPhotos FROM '/Users/liljazzman/HR138/ProjectCatwalkSDC/answers_photos.csv' WITH DELIMITER ',' CSV HEADER;
+COPY questions FROM './questions.csv' WITH DELIMITER ',' CSV HEADER;
+COPY answers FROM './answers.csv' WITH DELIMITER ',' CSV HEADER;
+COPY answerPhotos FROM './answers_photos.csv' WITH DELIMITER ',' CSV HEADER;
 
 -- Changing date to be timestamps and default to create timestamps of current time
 -- ALTER TABLE  questions
@@ -72,11 +72,6 @@ CREATE TABLE answerPhotos (
 -- UPDATE answers SET photos = url_list FROM urls WHERE answers.answerId = urls.answerID;
 
 -- >>>>>>>>>>
-
--- Creates user with all permissions
--- CREATE USER qauser WITH PASSWORD '12345';
--- GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO qauser;
--- GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA public TO qauser;
 
 -- Indexes
 -- CREATE INDEX productId_questions_idx ON questions (productId);
